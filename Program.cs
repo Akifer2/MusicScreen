@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Reflection;
-using Microsoft.VisualBasic;
+using System.Runtime.CompilerServices;
 
 // band dictionary
 
@@ -25,6 +25,17 @@ void defaultBandList()
 }
 
 defaultBandList();
+
+void backToMainMenu()
+{
+    Console.WriteLine("digite qualquer tecla para voltar ao menu principal");
+    Console.ReadKey();
+    Thread.Sleep(1000);
+    Console.Clear();
+    Console.WriteLine("voltando para o menu principal...");
+    Thread.Sleep(1000);
+    OptionsMenu();
+}
 
 void showWelcomeMessage()
 {
@@ -62,11 +73,7 @@ void registerBand()
 
     Console.Clear();
     Console.WriteLine($"a banda {bandName} foi registrada");
-    Thread.Sleep(1000);
-    Console.Clear();
-    Console.WriteLine("voltando para o menu principal...");
-    Thread.Sleep(1000);
-    OptionsMenu();
+    backToMainMenu();
 }
 
 void showBandList()
@@ -78,12 +85,30 @@ void showBandList()
     {
         Console.WriteLine(band);
     }
-    Console.WriteLine("digite qualquer tecla para voltar ao menu principal");
+    backToMainMenu();
+}
 
-    //metódo pra voltar para o menu principal
-    Console.ReadKey();
+void rateBand()
+{
     Console.Clear();
-    OptionsMenu();
+    showOptionTittle("Avaliar bandas");
+    Console.Write("digite a banda que deseja avaliar:");
+    string bandName = Console.ReadLine()!;
+
+    if (bandList.ContainsKey(bandName))
+    {
+        Console.WriteLine("Qual a nota deseja atribuir a banda?");
+        int bandRate = int.Parse(Console.ReadLine()!);
+        bandList[bandName].Add(bandRate);
+        Console.WriteLine($"\nvocê atribuiu nota {bandRate} a banda {bandName}");
+        backToMainMenu();
+    }
+    else
+    {
+        Console.WriteLine($"a banda {bandName} não foi encontrada");
+        Console.Write("digite qualquer tecla para voltar ao menu");
+        backToMainMenu();
+    }
 }
 
 void OptionsMenu()
@@ -110,7 +135,7 @@ void OptionsMenu()
             showBandList();
             break;
         case 3:
-            Console.WriteLine("você escolheu a opção " + chosedOption);
+            rateBand();
             break;
         case 4:
             Console.WriteLine("você escolheu a opção " + chosedOption);
