@@ -111,6 +111,26 @@ void rateBand()
     }
 }
 
+void showBandRateaverage()
+{
+    showOptionTittle("Classificação das bandas");
+
+    foreach (string band in bandList.Keys)
+    {
+        if (bandList[band].Count > 0)
+        {
+            int bandRateSum = bandList[band].Sum();
+            float bandAverage = (float)bandRateSum / bandList[band].Count;
+            Console.WriteLine($"Banda: {band} Média: {bandAverage}");
+        }
+        else
+        {
+            Console.WriteLine($"Banda: {band} não tem avaliações.");
+        }
+    }
+
+    backToMainMenu();
+}
 void OptionsMenu()
 {
     Console.Clear();
@@ -138,7 +158,7 @@ void OptionsMenu()
             rateBand();
             break;
         case 4:
-            Console.WriteLine("você escolheu a opção " + chosedOption);
+            showBandRateaverage();
             break;
         case -1:
             Console.Clear();
