@@ -8,20 +8,20 @@ Dictionary<string, List<int>> bandList = new Dictionary<string, List<int>>();
 
 void defaultBandList()
 {
-    bandList.Add("Linkin Park", new List<int>());
-    bandList.Add("Queen", new List<int>());
-    bandList.Add("The Beatles", new List<int>());
-    bandList.Add("Led Zeppelin", new List<int>());
-    bandList.Add("Metallica", new List<int>());
-    bandList.Add("Pink Floyd", new List<int>());
-    bandList.Add("Nirvana", new List<int>());
-    bandList.Add("Radiohead", new List<int>());
-    bandList.Add("U2", new List<int>());
-    bandList.Add("AC/DC", new List<int>());
-    bandList.Add("Guns N' Roses", new List<int>());
-    bandList.Add("Red Hot Chili Peppers", new List<int>());
-    bandList.Add("Coldplay", new List<int>());
-    bandList.Add("Green Day", new List<int>());
+    bandList["Linkin Park"].AddRange(new List<int> { 8, 7, 9, 8, 7 });
+    bandList["Queen"].AddRange(new List<int> { 9, 9, 9, 8, 10 });
+    bandList["The Beatles"].AddRange(new List<int> { 10, 10, 9, 10, 8 });
+    bandList["Led Zeppelin"].AddRange(new List<int> { 9, 8, 8, 7, 9 });
+    bandList["Metallica"].AddRange(new List<int> { 8, 8, 9, 7, 8 });
+    bandList["Pink Floyd"].AddRange(new List<int> { 10, 9, 9, 10, 10 });
+    bandList["Nirvana"].AddRange(new List<int> { 7, 8, 7, 6, 7 });
+    bandList["Radiohead"].AddRange(new List<int> { 9, 10, 8, 7, 9 });
+    bandList["U2"].AddRange(new List<int> { 8, 7, 9, 8, 8 });
+    bandList["AC/DC"].AddRange(new List<int> { 9, 9, 8, 8, 9 });
+    bandList["Guns N' Roses"].AddRange(new List<int> { 7, 8, 7, 7, 6 });
+    bandList["Red Hot Chili Peppers"].AddRange(new List<int> { 9, 9, 8, 9, 8 });
+    bandList["Coldplay"].AddRange(new List<int> { 8, 8, 7, 7, 9 });
+    bandList["Green Day"].AddRange(new List<int> { 7, 6, 7, 6, 8 });
 }
 
 defaultBandList();
